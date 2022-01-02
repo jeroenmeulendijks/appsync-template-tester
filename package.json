@@ -1,5 +1,5 @@
 {
-  "name": "appsync-template-tester",
+  "name": "@specifai-net/appsync-template-tester",
   "description": "Unit test AppSync VTL resolvers, with popular frameworks such as Jest",
   "keywords": [
     "appsync",
@@ -20,7 +20,7 @@
     "parse",
     "util"
   ],
-  "repository": "https://github.com/skyhookadventure/appsync-template-tester.git",
+  "repository": "https://github.com/specifai-net/appsync-template-tester.git",
   "license": "MIT",
   "version": "1.1.9",
   "main": "dist/index.js",

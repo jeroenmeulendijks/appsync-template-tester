@@ -57,3 +57,4 @@ Note: The errors list is also not returned (but \$util.error will throw an error
 ## Built by Skyhook
 
 This module is contributed by the team at [Skyhook](https://www.skyhookadventure.com/).
+And extended by [SpecifAI](https://specifai.net/) for internal use of testing AppSync, but it should be useable for everyone using AppSync and wants to test the VTL templates. We switched from [Amplify-appsync-simulator](https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-appsync-simulator) to this package because the simulator needs more setting up, which is to extensive for just unittesting. The package from Skyhook lacked some support see (https://github.com/skyhookadventure/appsync-template-tester/issues/17) and therefore we added support by merging code based on (https://github.com/aws-amplify/amplify-cli/tree/master/packages/amplify-appsync-simulator/src/velocity)
