@@ -68,7 +68,7 @@ export default class Parser {
 
     // Typecast Numbers
     // eslint-disable-next-line no-restricted-globals
-    if (!isNaN((res as unknown) as number)) return parseFloat(res);
+    if (!isNaN(res as unknown as number)) return parseFloat(res);
 
     // Typecast JSON to Object
     try {
@@ -93,4 +93,4 @@ export type Context = {
   stash?: object;
 };
 
-export type velocityParams = { [blockName: string]: boolean };
+export type VelocityParams = { [blockName: string]: boolean };
