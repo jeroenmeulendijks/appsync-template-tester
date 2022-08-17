@@ -9,10 +9,14 @@ import * as map from "./util-map";
 export default class Parser {
   private template: string;
 
-  private internalStash: Record<string, string> = {};
+  private internalContext: Context;
 
-  public get stash() {
-    return this.internalStash;
+  public get stash(): Record<string, any> {
+    return this.context?.stash ?? {};
+  }
+
+  public get context(): Context {
+    return this.internalContext ?? {};
   }
 
   constructor(template: string) {
@@ -51,8 +55,8 @@ export default class Parser {
 
     const res = render(this.template, params, macros, { valueMapper });
 
-    // Keep stash value
-    this.internalStash = clonedContext.stash;
+    // Keep the full context
+    this.internalContext = clonedContext;
 
     // Remove preceding and trailing whitespace
     const resWithoutWhitespace = res
@@ -90,7 +94,7 @@ export type Context = {
   info?: object;
   error?: object;
   prev?: object;
-  stash?: object;
+  stash?: Record<string, any>;
 };
 
 export type VelocityParams = { [blockName: string]: boolean };
