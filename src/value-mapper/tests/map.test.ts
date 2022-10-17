@@ -1,6 +1,5 @@
 import { JavaArray } from "../array";
 import { JavaMap } from "../map";
-import { JavaString } from "../string";
 import { valueMapper as mapper } from "../mapper";
 
 describe("JavaMap", () => {
@@ -75,9 +74,7 @@ describe("JavaMap", () => {
   it("keySet returns a JavaArray with each element of type string", () => {
     const obj = { foo: "Foo Value", bar: "Bar Value" };
     const map = new JavaMap(obj, mapper);
-    expect(map.keySet()).toEqual(
-      new JavaArray(["foo", "bar"], mapper)
-    );
+    expect(map.keySet()).toEqual(new JavaArray(["foo", "bar"], mapper));
   });
 
   it("put", () => {

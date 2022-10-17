@@ -47,8 +47,8 @@ export default class Parser {
       // Quick fix to handle a minimum extension for subscriptions
       // We probably want to add this in it's own module and handle more functions
       extensions: {
-        setSubscriptionFilter: (obj: object) => JSON.stringify(obj)
-      }
+        setSubscriptionFilter: (obj: object) => JSON.stringify(obj),
+      },
     };
 
     const macros = {

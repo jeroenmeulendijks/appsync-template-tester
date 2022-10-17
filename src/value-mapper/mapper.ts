@@ -1,4 +1,4 @@
-import { JavaMap, createMapProxy } from "./map";
+import { JavaMap } from "./map";
 import { JavaArray } from "./array";
 import { JavaString } from "./string";
 
