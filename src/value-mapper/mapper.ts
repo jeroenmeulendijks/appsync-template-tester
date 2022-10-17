@@ -1,4 +1,4 @@
-import { JavaMap } from "./map";
+import { JavaMap, createMapProxy } from "./map";
 import { JavaArray } from "./array";
 import { JavaString } from "./string";
 
@@ -16,15 +16,17 @@ export function valueMapper(value: any): any {
     );
   }
   if (isPlainObject(value)) {
-    return new JavaMap(
-      Object.entries(value).reduce((sum, [k, v]) => {
-        return {
-          ...sum,
-          [k]: valueMapper(v),
-        };
-      }, {}),
-      valueMapper
-    ).toJSON();
+    return createMapProxy(
+      new JavaMap(
+        Object.entries(value).reduce((sum, [k, v]) => {
+          return {
+            ...sum,
+            [k]: valueMapper(v),
+          };
+        }, {}),
+        valueMapper
+      )
+    );
   }
 
   if (typeof value === "string" && !((value as any) instanceof JavaString)) {

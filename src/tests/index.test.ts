@@ -1,4 +1,6 @@
 import Parser from "../index";
+import { JavaMap } from "../value-mapper/map";
+import { valueMapper } from "../value-mapper/mapper";
 
 test("Simple vtl returns correctly", () => {
   const vtl = '$utils.toJson({"test": true})';
@@ -109,7 +111,9 @@ describe("$context keeps full context data", () => {
       `;
       const parser = new Parser(vtl);
       parser.resolve({});
-      expect(parser.stash).toStrictEqual({ key: { nestedKey: "nestedValue" } });
+      expect(parser.stash).toStrictEqual({
+        key: new JavaMap({ nestedKey: "nestedValue" }, valueMapper),
+      });
     });
 
     describe("Defaults if context is not defined", () => {
