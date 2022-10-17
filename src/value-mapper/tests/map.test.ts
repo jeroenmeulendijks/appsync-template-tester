@@ -72,11 +72,11 @@ describe("JavaMap", () => {
     expect(map.keySet().toJSON()).toEqual(["foo", "bar"]);
   });
 
-  it("keySet returns a JavaArray with each element of type JavaString", () => {
+  it("keySet returns a JavaArray with each element of type string", () => {
     const obj = { foo: "Foo Value", bar: "Bar Value" };
     const map = new JavaMap(obj, mapper);
     expect(map.keySet()).toEqual(
-      new JavaArray([new JavaString("foo"), new JavaString("bar")], mapper)
+      new JavaArray(["foo", "bar"], mapper)
     );
   });
 

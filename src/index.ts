@@ -44,6 +44,11 @@ export default class Parser {
       ctx: clonedContext,
       util,
       utils: util,
+      // Quick fix to handle a minimum extension for subscriptions
+      // We probably want to add this in it's own module and handle more functions
+      extensions: {
+        setSubscriptionFilter: (obj: object) => JSON.stringify(obj)
+      }
     };
 
     const macros = {

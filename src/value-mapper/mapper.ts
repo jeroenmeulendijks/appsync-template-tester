@@ -16,21 +16,19 @@ export function valueMapper(value: any): any {
     );
   }
   if (isPlainObject(value)) {
-    return createMapProxy(
-      new JavaMap(
-        Object.entries(value).reduce((sum, [k, v]) => {
-          return {
-            ...sum,
-            [k]: valueMapper(v),
-          };
-        }, {}),
-        valueMapper
-      )
-    );
+    return new JavaMap(
+      Object.entries(value).reduce((sum, [k, v]) => {
+        return {
+          ...sum,
+          [k]: valueMapper(v),
+        };
+      }, {}),
+      valueMapper
+    ).toJSON();
   }
 
   if (typeof value === "string" && !((value as any) instanceof JavaString)) {
-    return new JavaString(value);
+    return new JavaString(value).toString();
   }
 
   // for now we don't handle number.
