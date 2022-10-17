@@ -20,7 +20,7 @@ jobs:
       - run: yarn install
       # set up git since we will later push to the repo
       - run: git config --global user.name "GitHub CD bot"
-      - run: git config --global user.email "admin@gspecifai.net"
+      - run: git config --global user.email "admin@specifai.net"
       # upgrade version in package.json to the tag used in the release.
       - run: npm version ${{ github.event.release.tag_name }}
       # build the project
